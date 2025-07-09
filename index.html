@@ -52,6 +52,18 @@
       opacity: 0.6;
       font-style: italic; /* Add a subtle italic */
     }
+
+    /* Added for "each and every text should be center" request */
+    .list-group-item .me-auto {
+        text-align: center; /* Center the text content of the todo item */
+        width: 100%; /* Ensure it takes full width to center effectively */
+    }
+    .list-group-item .btn-group {
+        position: absolute; /* Position buttons absolutely */
+        right: 10px; /* Adjust as needed */
+        top: 50%;
+        transform: translateY(-50%);
+    }
   </style>
 </head>
 <body>
@@ -64,51 +76,49 @@
     </button>
   </div>
 
-  <div id="successMessage" class="alert alert-success d-none" role="alert"></div>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10"> <div id="successMessage" class="alert alert-success d-none text-center" role="alert"></div>
 
-  <div class="row justify-content-center mb-4">  <div class="col-md-8 col-lg-6"> <div class="card p-4"> <h4>Add New Todo</h4>
-        <form id="addTodoForm">
+      <div class="card p-4 mb-4 text-center"> <h4 class="mb-3">Add New Todo</h4> <form id="addTodoForm">
           <div class="mb-3">
-            <input type="text" id="newTodoInput" class="form-control" placeholder="Enter new task" required />
-          </div>
+            <input type="text" id="newTodoInput" class="form-control text-center" placeholder="Enter new task" required /> </div>
           <button type="submit" class="btn btn-primary">Add Todo</button>
         </form>
       </div>
-    </div>
-  </div>
 
-  <div class="row mb-3 align-items-end"> <div class="col-md-4 mb-2">
-      <label for="searchInput" class="form-label visually-hidden">Search Tasks</label>
-      <input type="text" id="searchInput" class="form-control" placeholder="Search tasks..." />
-    </div>
-    <div class="col-md-3 mb-2">
-      <label for="fromDate" class="form-label">From Date</label>
-      <input type="date" id="fromDate" class="form-control" />
-    </div>
-    <div class="col-md-3 mb-2">
-      <label for="toDate" class="form-label">To Date</label>
-      <input type="date" id="toDate" class="form-control" />
-    </div>
-    <div class="col-md-2 mb-2 d-flex gap-2">
-      <select id="sortSelect" class="form-select">
-        <option value="">Sort By</option>
-        <option value="az">A - Z</option>
-        <option value="za">Z - A</option>
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
-      </select>
-      <button id="clearFilters" class="btn btn-secondary">Clear</button>
-    </div>
-  </div>
+      <div class="row mb-3 align-items-end">
+        <div class="col-md-4 mb-2">
+          <label for="searchInput" class="form-label visually-hidden">Search Tasks</label>
+          <input type="text" id="searchInput" class="form-control text-center" placeholder="Search tasks..." />
+        </div>
+        <div class="col-md-3 mb-2">
+          <label for="fromDate" class="form-label">From Date</label>
+          <input type="date" id="fromDate" class="form-control text-center" />
+        </div>
+        <div class="col-md-3 mb-2">
+          <label for="toDate" class="form-label">To Date</label>
+          <input type="date" id="toDate" class="form-control text-center" />
+        </div>
+        <div class="col-md-2 mb-2 d-flex gap-2">
+          <select id="sortSelect" class="form-select text-center"> <option value="">Sort By</option>
+            <option value="az">A - Z</option>
+            <option value="za">Z - A</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+          <button id="clearFilters" class="btn btn-secondary">Clear</button>
+        </div>
+      </div>
 
-  <div id="errorMessage" class="alert alert-danger d-none" role="alert"></div>
+      <div id="errorMessage" class="alert alert-danger d-none text-center" role="alert"></div>
 
-  <ul id="todoList" class="list-group mb-4"></ul>
+      <ul id="todoList" class="list-group mb-4"></ul>
 
-  <nav>
-    <ul id="pagination" class="pagination justify-content-center"></ul>
-  </nav>
-</div>
+      <nav>
+        <ul id="pagination" class="pagination justify-content-center"></ul>
+      </nav>
+
+    </div> </div> </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="app.js"></script>
