@@ -1,15 +1,250 @@
 /* Custom styles for Todo List App */
 
+:root {
+    /* Light Mode Colors */
+    --primary-color: #6C63FF; /* A vibrant purple */
+    --primary-color-hover: #5a4ee6;
+    --accent-color: #00BFA5; /* A complementary teal */
+    --text-color-light: #212529; /* Standard dark text */
+    --body-bg-light: #f8f9fa; /* Light background */
+    --card-bg-light: #ffffff;
+    --border-color-light: #dee2e6;
+
+    /* Dark Mode Colors (override if dark-mode class is active) */
+    --primary-color-dark: #8c85ff; /* Slightly brighter purple for dark mode */
+    --primary-color-dark-hover: #a19aff;
+    --text-color-dark: #e0e0e0; /* Light text for dark mode */
+    --body-bg-dark: #1a1a2e; /* Very dark blue/purple */
+    --card-bg-dark: #2c2c4d; /* Slightly lighter than body bg */
+    --border-color-dark: #44447a;
+}
+
 body {
-  background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-bg-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
 }
 
+h1, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color); /* Apply primary color to headings */
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    background-color: var(--body-bg-dark);
+    color: var(--text-color-dark);
+}
+.dark-mode h1,
+.dark-mode h4 {
+    color: var(--primary-color-dark);
+}
+
+/* Card Styling */
+.card {
+    border-radius: 0.75rem; /* Slightly rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    border: none; /* Remove default bootstrap border */
+    background-color: var(--card-bg-light);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.dark-mode .card {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+    background-color: var(--card-bg-dark);
+}
+
+/* Form Control (Input/Select) Styling */
+.form-control, .form-select {
+    border-color: var(--border-color-light);
+    background-color: var(--card-bg-light); /* Match card background */
+    color: var(--text-color-light);
+    transition: all 0.2s ease-in-out;
+}
+.form-control::placeholder {
+    color: #888; /* Dim placeholder text */
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color); /* Custom focus color */
+    box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25); /* Using accent color with alpha */
+    background-color: var(--card-bg-light); /* Maintain background on focus */
+    color: var(--text-color-light); /* Maintain text color on focus */
+}
+.dark-mode .form-control,
+.dark-mode .form-select {
+    border-color: var(--border-color-dark);
+    background-color: var(--card-bg-dark);
+    color: var(--text-color-dark);
+}
+.dark-mode .form-control::placeholder {
+    color: #bbb;
+}
+.dark-mode .form-control:focus,
+.dark-mode .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.4);
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: var(--primary-color) !important; /* !important to override Bootstrap */
+    border-color: var(--primary-color) !important;
+    font-weight: 600; /* Make text bolder */
+    transition: all 0.2s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: var(--primary-color-hover) !important;
+    border-color: var(--primary-color-hover) !important;
+    transform: translateY(-1px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+.btn-secondary { /* Clear filters button */
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+.btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .btn-primary {
+    background-color: var(--primary-color-dark) !important;
+    border-color: var(--primary-color-dark) !important;
+}
+.dark-mode .btn-primary:hover {
+    background-color: var(--primary-color-dark-hover) !important;
+    border-color: var(--primary-color-dark-hover) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.dark-mode .btn-secondary {
+    background-color: #555 !important;
+    border-color: #555 !important;
+}
+.dark-mode .btn-secondary:hover {
+    background-color: #666 !important;
+    border-color: #666 !important;
+}
+
+
+/* List Item Styling */
 #todoList li {
-  cursor: pointer;
+    cursor: pointer;
+    background-color: var(--card-bg-light);
+    border-color: var(--border-color-light);
+    border-radius: 0.5rem; /* Slightly rounded list items */
+    margin-bottom: 0.5rem; /* Space between items */
+    padding: 1rem; /* More padding */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.2s ease;
+}
+#todoList li:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover */
+}
+.dark-mode #todoList li {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-color-dark);
+}
+.dark-mode #todoList li:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Completed tasks */
 #todoList li.completed {
-  text-decoration: line-through;
-  color: gray;
-  opacity: 0.7;
+    text-decoration: line-through;
+    color: #6c757d; /* Grey text for completed */
+    opacity: 0.7;
+    font-style: italic;
+    background-color: #e9ecef; /* Lighter background for completed */
+    border-color: #c9cbce;
+}
+.dark-mode #todoList li.completed {
+    color: #99aab5; /* Lighter grey for dark mode completed */
+    background-color: #3b3b6b; /* Different background for dark mode completed */
+    border-color: #52528c;
+}
+
+/* Icons within list items */
+.todo-text .bi {
+    vertical-align: middle; /* Align icon with text */
+    margin-right: 0.5rem;
+    color: var(--accent-color); /* Color the checkmark icon */
+}
+
+/* Action buttons within list items */
+.btn-group .btn-sm {
+    padding: 0.3rem 0.5rem; /* Adjust padding for smaller buttons */
+    margin-left: 0.25rem; /* Space between action buttons */
+    border-radius: 0.3rem; /* Slightly rounded action buttons */
+    transition: all 0.1s ease;
+}
+.btn-group .btn-sm:hover {
+    transform: translateY(-0.5px);
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+.pagination .page-item.active .page-link,
+.pagination .page-item .page-link:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+.dark-mode .pagination .page-item .page-link {
+    color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    background-color: transparent;
+}
+.dark-mode .pagination .page-item.active .page-link,
+.dark-mode .pagination .page-item .page-link:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    color: #2c2c4d; /* Darker text for active page link in dark mode */
+}
+
+/* Alert Messages (Success/Error) */
+.alert {
+    border-radius: 0.5rem;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+.alert.d-none {
+    opacity: 0;
+    /* This makes it unclickable when hidden, while d-none usually handles display */
+    /* if you just want fade, remove d-none and manage visibility with opacity/pointer-events */
+}
+
+/* Dark Mode Toggle Button Specifics */
+#toggleDarkMode {
+    border-radius: 50%; /* Make it round */
+    width: 45px; /* Fixed width */
+    height: 45px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+#toggleDarkMode:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.dark-mode #toggleDarkMode:hover {
+    background-color: var(--primary-color-dark) !important;
+    border-color: var(--primary-color-dark) !important;
+    color: #1a1a2e !important; /* Darker text for hover in dark mode */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.light-mode-icon, .dark-mode-icon {
+    font-size: 1.5rem; /* Larger icon */
 }
