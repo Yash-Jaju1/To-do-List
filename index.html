@@ -87,18 +87,30 @@
       </div>
 
       <div class="row mb-3 align-items-end">
-        <div class="col-md-4 mb-2">
-          <label for="searchInput" class="form-label visually-hidden">Search Tasks</label>
-          <input type="text" id="searchInput" class="form-control text-center" placeholder="Search tasks..." />
-        </div>
-        <div class="col-md-3 mb-2">
-          <label for="fromDate" class="form-label">From Date</label>
-          <input type="date" id="fromDate" class="form-control text-center" />
-        </div>
-        <div class="col-md-3 mb-2">
-          <label for="toDate" class="form-label">To Date</label>
-          <input type="date" id="toDate" class="form-control text-center" />
-        </div>
+    <div class="col-md-4 mb-2">
+      <label for="searchInput" class="form-label visually-hidden">Search Tasks</label>
+      <input type="text" id="searchInput" class="form-control text-center" placeholder="Search tasks..." />
+    </div>
+  
+    <div class="col-md-3 mb-2 d-flex flex-column align-items-center">
+      <label for="fromDate" class="form-label">From Date</label> <input type="date" id="fromDate" class="form-control text-center" />
+    </div>
+  
+    <div class="col-md-3 mb-2 d-flex flex-column align-items-center">
+      <label for="toDate" class="form-label">To Date</label> <input type="date" id="toDate" class="form-control text-center" />
+    </div>
+  
+    <div class="col-md-2 mb-2 d-flex gap-2">
+      <select id="sortSelect" class="form-select text-center">
+        <option value="">Sort By</option>
+        <option value="az">A - Z</option>
+        <option value="za">Z - A</option>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+      </select>
+      <button id="clearFilters" class="btn btn-secondary">Clear</button>
+    </div>
+  </div>
         <div class="col-md-2 mb-2 d-flex gap-2">
           <select id="sortSelect" class="form-select text-center"> <option value="">Sort By</option>
             <option value="az">A - Z</option>
